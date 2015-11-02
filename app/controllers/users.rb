@@ -30,3 +30,10 @@ post "/login" do #submit details to compare to the table info
 erb :"homepage"
 end
 
+get "/logout" do
+  session[:id] = nil
+  @message = "You have successfully logged out!"
+erb :"homepage"  
+end
+
+
