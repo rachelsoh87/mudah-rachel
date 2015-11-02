@@ -1,0 +1,6 @@
+<h3> My Products </h3>
+<% @users_products.each do |product| %>
+	<a href = "/products/<%=product.id%>">
+  	<p><%= product.description %></p>
+  </a>
+<% end %>

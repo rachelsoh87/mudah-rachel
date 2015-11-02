@@ -36,4 +36,28 @@ get "/logout" do
 erb :"homepage"  
 end
 
+get "/users/:user_id" do
+  if logged_in?
+    @user = User.find(params[:user_id])
+
+  erb :"my_profile"  
+  else
+    @message = "Please log-in!"
+    erb :"homepage"
+  end
+end
+
+get "/users/:user_id/products" do
+  if logged_in?
+#display all the questions posted by a particular user
+#find each question posted by one user
+  user = User.find(params[:user_id])
+  @users_products = Product.where(user_id: user.id) 
+
+  erb :"my_products"
+  else
+    @message = "Please log-in!"
+    erb :"homepage"
+  end
+end
 

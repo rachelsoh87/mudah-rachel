@@ -20,6 +20,8 @@
 
 	<%if logged_in?%>
 		<a href = "/logout"> log out </a>
+		<br/>
+  	<a href = "/users/<%=session[:id]%>"> my profile </a>
 	<%else%>
 		<a href ="/signup"> sign up </a>
 		or
