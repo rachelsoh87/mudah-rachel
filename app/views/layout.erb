@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/application.css">
+	<script src="/js/application.js"></script>
+
+	<title> Mudah-nya </title>
+</head>
+<body>
+
+	<a href="/">
+		<h1> Mudah-nya! </h1>
+	</a>
+	<% if @message %>
+		<p>	
+			<%= @message %>
+		</p>
+	<% end %>
+
+	<%if logged_in?%>
+		<a href = "/logout"> log out </a>
+	<%else%>
+		<a href ="/signup"> sign up </a>
+		or
+		<a href = "/login"> log in </a>
+	<%end%>
+
+	<%= yield%>
+
+</body>
+</html>
