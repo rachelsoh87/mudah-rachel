@@ -6,3 +6,12 @@
 <%= @product_poster.full_name %>
 </br>
 </br>
+
+<form action = "/products/<%=@product.id%>/favorites/add" method = "post">
+	<input type = "submit" value = "add to favorites"/> 
+</form>
+
+<form action = "/products/<%=@product.id%>/favorites/delete" method = "post">
+	<input name='_method' type='hidden' value='delete' />
+	<input type = "submit" value = "remove from favorites"/>
+</form>

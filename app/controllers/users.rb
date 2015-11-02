@@ -49,8 +49,6 @@ end
 
 get "/users/:user_id/products" do
   if logged_in?
-#display all the questions posted by a particular user
-#find each question posted by one user
   user = User.find(params[:user_id])
   @users_products = Product.where(user_id: user.id) 
 
@@ -61,3 +59,15 @@ get "/users/:user_id/products" do
   end
 end
 
+
+get "/users/:user_id/favorites" do
+  user = User.find(params[:user_id])
+  @all_favorites = Favorite.all
+
+  if logged_in?
+  erb :"my_favorites"
+  else
+    @message = "Please log-in!"
+    erb :"homepage"
+  end
+end

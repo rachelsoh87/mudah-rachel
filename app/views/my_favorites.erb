@@ -1,0 +1,11 @@
+<h3> My Favorites </h3>
+<%#byebug%>
+<%#= @users_favorites%>
+<%# end %>
+
+ <% @all_favorites.each do |favorite| %>
+  <%	if favorite.user_id == current_user.id %>
+  	<%	favorited_product = Product.find(favorite.product_id) %>
+  		<%=	favorited_product.description %>
+  	<% end %>
+  	<%end%>
