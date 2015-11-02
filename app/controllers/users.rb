@@ -19,4 +19,14 @@ post "/signup" do #create a user
    redirect to "/login"  
 end
 
+get "/login" do
+  erb :"login_page"
+end
+
+post "/login" do #submit details to compare to the table info
+  user = User.authenticate(params[:user][:email], params[:user][:password])
+  session[:id] = user.id
+  @message = "You have successfully logged in!"
+erb :"homepage"
+end
 
