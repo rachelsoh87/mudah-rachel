@@ -1,0 +1,10 @@
+<form action = "/products" method= "post">
+    <h3>Post a product:</h3>
+    <input type = "text" name = "product[description]" placeholder = "Post your product here" autofocus>
+    <input type = "submit" value = "submit">
+</form>
+
+<% all_products.each do |product| %>
+<a href = "/products/<%= product.id %>"> 
+<p><%= product.description %></p>
+<% end %>
